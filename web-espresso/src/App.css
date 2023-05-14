@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+.no_outline_btn {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  text-align: center;
+  bottom: 0;
+}

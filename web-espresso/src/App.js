@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import Score from './component/Score';
+
+const env = process.env;
+env.PUBLIC_URL = env.PUBLIC_URL || "";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Score text={"sugar"} top={110} imgMargin={100}/>
+      <Score text={"acidity"} top={70} imgMargin={100}/>
+      <Score text={"bitter"} top={70} imgMargin={120}/>
+      <div>
+        <button className='no_outline_btn'>
+          <img src={process.env.PUBLIC_URL + `/images/submit_button.png`}/>
+        </button>
+      </div>
     </div>
   );
 }
