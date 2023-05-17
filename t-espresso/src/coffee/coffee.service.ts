@@ -6,14 +6,25 @@ import { getCSV, getRecommandCoffee, getRecommandGenre } from 'src/recommand/rec
 export class CoffeeService {
 
     getRecommands(flavor: FlavorDto): string[] {
-        let csvData = getCSV();
-        let genre = getRecommandGenre(10, this.getBestFlavor(flavor), csvData);
+        const csvData = getCSV();
+        const ageGroup = this.calculateAgeGroup(flavor.age);
+        const bestFlavor = this.getBestFlavor(flavor, ageGroup);
+        let genre = getRecommandGenre(ageGroup, bestFlavor, csvData);
         return getRecommandCoffee(genre, csvData);
     }
 
-    private getBestFlavor(flavor: FlavorDto): string {
+    private calculateAgeGroup(age: number): number {
+        if (age > 99) {
+            return (age % 10) * 100;
+        }
+        else {
+            return Math.floor(age / 10) * 10;
+        }
+    }
+
+    private getBestFlavor(flavor: FlavorDto, ageGroup: number): string {
         if (flavor.sugar === flavor.acidity && flavor.acidity === flavor.bitter) {
-            return this.getDefaultFlavor(flavor.age);
+            return this.getDefaultFlavor(ageGroup);
         }
 
         if (flavor.sugar > flavor.acidity && flavor.sugar > flavor.bitter) {
