@@ -47,3 +47,15 @@
   text-align: center;
   bottom: 0;
 }
+
+input {
+  width: 737px;
+  height: 63px;
+  left: 425px;
+  top: 282px;
+  text-align: center;
+  font-size: 30px;
+  background-image: url("../public/images/text/input.png");
+  background-size: cover;
+  border: none;
+}
