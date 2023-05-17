@@ -39,24 +39,15 @@ export class CoffeeService {
     }
 
     private getDefaultFlavor(age: number): string {
-        if (age >= 60) {
-            return "BITTER";
+        switch (age) {
+            case 10:
+            case 50:
+                return "SWEET";
+            case 30:
+            case 40:
+                return "SOUR";
+            default:
+                return "BITTER";
         }
-        else if (age >= 50) {
-            return "SWEET";
-        }
-        else if (age >= 40) {
-            return "SOUR";
-        }
-        else if (age >= 30) {
-            return "BITTER";
-        }
-        else if (age >= 20) {
-            return "BITTER";
-        }
-        else if (age >= 10) {
-            return "SWEET";
-        }
-        throw Error("Illegal Argument Exception Occurred!");
     }
 }
