@@ -59,3 +59,26 @@ input {
   background-size: cover;
   border: none;
 }
+
+.crown {
+  position: absolute;
+  width: 166px;
+  height: 123px;
+  top: 260px;
+}
+
+.coffee {
+  position: absolute;
+  width: 298px;
+  height: 279px;
+  top: 380px;
+  border-radius: 210px;
+}
+
+.coffee-name {
+  position: absolute;
+  width: 282px;
+  height: 55px;
+  top: 650px;
+  font-size: 30px;
+}
