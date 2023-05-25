@@ -2,7 +2,9 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import './App.css';
+
 import ScoreComponent from './components/score/ScoreComponent';
+import RecommandComponent from './components/recommand/RecommandComponent';
 
 function App() {
   return (
@@ -10,6 +12,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<ScoreComponent/>}/>
+          <Route path='/recommands' element={<RecommandComponent/>}/>
         </Routes>
       </BrowserRouter>
     </div>
