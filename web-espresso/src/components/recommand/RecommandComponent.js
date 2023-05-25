@@ -1,21 +1,27 @@
+import { MemorizedRank } from "./RankComponent";
+import CrownComponent from "./CrownComponent";
 
 const RecommandComponent = () => {
+    const coffeePos = [260, 820, 1395];
+    const crownPos = [320, 885, 1460];
     const location = window.location;
 
     const getRecommands = () => {
         const params = new URLSearchParams(location.search);
-
         const key = params.get("key");
-        return window.sessionStorage.getItem(key);
+        return JSON.parse(window.sessionStorage.getItem(key)).coffee;
     }
-
-    // TODO: 가져온 데이터를 순서대로 출력하고
-    //       설명을 출력한다.
-    // TODO: 꾸준한 데이터를 쌓기 위해서 3개 중 하나를 클릭하면
-    //       CSV 파일에 기록하도록 한다.
+    
     return (
         <>
-            {console.log(getRecommands())}
+            {getRecommands().map((v, i) => {
+                return (
+                    <div>
+                        <CrownComponent key={i+3} rank={i} left={crownPos[i]}/>
+                        <MemorizedRank key={i+13} name={v} left={coffeePos[i]}/>
+                    </div>
+                );
+            })}
         </>
     );
 }
