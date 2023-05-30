@@ -19,6 +19,11 @@ const ScoreComponent = () => {
     const recommandsCoffee = () => {
         requestGetMethod(`/coffee/recommand?age=${age}&sugar=${sugar}&acidity=${acidity}&bitter=${bitter}`)
             .then(res => {
+                if (window.sessionStorage.length >= 10) {
+                    // 10 개 이상이면 전부 날림
+                    window.sessionStorage.clear();
+                }
+
                 const uuid = window.self.crypto.randomUUID();
                 window.sessionStorage.setItem(uuid, JSON.stringify(res.data));
                 return uuid;
