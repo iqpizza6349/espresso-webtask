@@ -10,7 +10,8 @@ export function RankComponent({ name, left }) {
                             return (
                                 <>
                                     <img src={coffee.img} alt="?" className='coffee' style={{left}}/>
-                                    <p className='coffee-name' style={{left}}>{coffee.simple_name}</p>
+                                    <p className='coffee-name' style={{left: left - 10}}>{coffee.simple_name}</p>
+                                    <p className='coffee-description' style={{left}}>{coffee.describe}</p>
                                 </>
                             )
                         })}
