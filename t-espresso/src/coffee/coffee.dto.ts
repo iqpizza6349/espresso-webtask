@@ -5,9 +5,8 @@ import { toNumber } from 'src/common/helper/cast.helper';
 export class FlavorDto {
     
     @IsInt()
-    @Min(14)
     @Max(200)
-    @Transform(({ value }) => toNumber(value, { default: -1, min: 14, max: 200 }))
+    @Transform(({ value }) => toNumber(value, { default: -1, max: 200 }))
     public age: number;
 
     @IsInt()
